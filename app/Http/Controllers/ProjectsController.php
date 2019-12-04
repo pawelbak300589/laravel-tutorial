@@ -13,11 +13,18 @@ class ProjectsController extends Controller
         return view('projects.index', compact('projects'));
     }
 
-    public function add()
+    public function create()
+    {
+        return view('projects.create');
+    }
+
+    public function store()
     {
         $project = new Project();
-        $project->setTitle('New Project');
-        $project->setDescription('Description od the new project');
-        return $project->save();
+        $project->title = request('title');
+        $project->description = request('description');
+        $project->save();
+
+        return redirect('/projects');
     }
 }

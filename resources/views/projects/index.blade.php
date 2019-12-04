@@ -8,4 +8,5 @@
             <li>{{$project->title}}</li>
         @endforeach
     </ul>
+    <a href="/projects/create">Create New Project</a>
 @endsection
