@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Update repositories
-sudo apt-get update && sudo apt-get upgrade -y
+#sudo apt-get update && sudo apt-get upgrade -y
 
 # Install Apache, PHP5 and MySQL
 #sudo apt-get install -y apache2
