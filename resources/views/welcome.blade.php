@@ -3,11 +3,7 @@
 @section('title', 'Welcome')
 
 @section('content')
-    <div class="title m-b-md">
-        Welcome {{ $foo }}
-    </div>
-
-    <div class="links">
-        <a href="/contact">Contact</a>
+    <div class="col s12">
+        <h1>Welcome</h1>
     </div>
 @endsection

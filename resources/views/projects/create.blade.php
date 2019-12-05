@@ -1,20 +1,46 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>Create a New Project</h1>
 
-    <form action="/projects" method="POST">
-        @csrf
-        <div>
-            <input type="text" name="title" placeholder="Project title">
+    <div class="row">
+        <div class="col s12">
+            <h1>Create a New Project</h1>
         </div>
-        <div>
-            <textarea name="description" id="description" cols="30" rows="10"
-                      placeholder="Project description"></textarea>
+        <form action="/projects" method="POST" class="col s12">
+            @csrf
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="title" name="title" type="text"
+                           class="validate{{ $errors->has('title') ? ' invalid' : '' }}" value="{{ old('title') }}">
+                    <label for="title">Project title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="description" name="description"
+                              class="materialize-textarea{{ $errors->has('description') ? ' invalid' : '' }}">{{ old('description') }}</textarea>
+                    <label for="description">Project description</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button class="btn waves-effect waves-light" type="submit">
+                        Create project <i class="material-icons right">add</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="col s12">
+            @if($errors->any())
+
+                <ul class="collection">
+                    @foreach($errors->all() as $error)
+                        <li class="collection-item red accent-4 white-text">{{ $error }}</li>
+                    @endforeach
+                </ul>
+
+            @endif
         </div>
-        <div>
-            <button type="submit">Create project</button>
-        </div>
-    </form>
+    </div>
 
 @endsection
