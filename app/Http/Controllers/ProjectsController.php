@@ -30,9 +30,9 @@ class ProjectsController extends Controller
         return redirect('/projects');
     }
 
-    public function show()
+    public function show(Project $project)
     {
-        return view('projects.show');
+        return view('projects.show', compact('project'));
     }
 
     public function edit(Project $project)
