@@ -12,9 +12,11 @@
                     <li class="collection-header"><h4>{{ $project->description }}</h4></li>
                     @foreach($project->tasks as $task)
                         <li class="collection-item">
-                            <form action="/task/{{ $task->id }}" method="POST">
+                            <form action="/task/{{ $task->id }}/completed" method="POST">
                                 @csrf
-                                @method('PATCH')
+                                @if($task->completed)
+                                    @method('PATCH')
+                                @endif
                                 <p>
                                     <label>
                                         <input type="checkbox" name="completed"
