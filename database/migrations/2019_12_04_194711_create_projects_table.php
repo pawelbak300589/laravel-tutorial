@@ -13,8 +13,11 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::enableForeignKeyConstraints();
+        Schema::create('projects', function (Blueprint $table)
+        {
+            $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->text('description');
             $table->timestamps();
