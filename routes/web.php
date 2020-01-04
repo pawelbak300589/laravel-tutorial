@@ -22,3 +22,10 @@ Route::patch('/task/{task}/completed', 'CompletedTasksController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/articles', function ()
+{
+    $articles = App\Article::take(3)->latest()->get();
+
+    return $articles;
+});
